@@ -112,7 +112,7 @@ class ClientTestCase(TestCase):
         self._prepare_for_uploading()
         buff = StringIO()
         buff.write(u'test content for testing of webdav client')
-        self.client.upload_to(buff=buff, remote_path=self.remote_path_file)
+        self.client.upload_to(buff=buff.getvalue(), remote_path=self.remote_path_file)
         self.assertTrue(self.client.check(self.remote_path_file), 'Expected the file is uploaded.')
 
     def test_upload(self):
